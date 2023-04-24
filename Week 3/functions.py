@@ -178,3 +178,108 @@ def freq(string):
 # step6: Call function and pass string in it
 freq("Mary had a little lamb Little lamb, little lamb Mary had a little lamb.Its fleece was white as snow And everywhere that Mary went Mary went, Mary went \
 Everywhere that Mary went The lamb was sure to go")
+
+# Example for setting param with default value
+
+def isGoodRating(rating=4):
+    if (rating < 7):
+        print("this album sucks it's rating is", rating)
+
+    else:
+        print("this album is good its rating is", rating)
+
+# Test the value with default value and with input
+isGoodRating()
+isGoodRating(10)
+
+# Example of global variable
+
+artist = "Michael Jackson"
+
+def printer(artist):
+    global internal_var
+    internal_var= "Whitney Houston"
+    print(artist,"is an artist")
+
+printer(artist)
+printer(internal_var)
+
+# Example of global variable
+
+myFavouriteBand = "AC/DC"
+
+def getBandRating(bandname):
+    if bandname == myFavouriteBand:
+        return 10.0
+    else:
+        return 0.0
+
+print("AC/DC's rating is:", getBandRating("AC/DC"))
+print("Deep Purple's rating is:",getBandRating("Deep Purple"))
+print("My favourite band is:", myFavouriteBand)
+
+# Deleting the variable "myFavouriteBand" from the previous example to demonstrate an example of a local variable
+
+# del myFavouriteBand
+
+# Example of local variable
+
+def getBandRating(bandname):
+    myFavouriteBand = "AC/DC"
+    if bandname == myFavouriteBand:
+        return 10.0
+    else:
+        return 0.0
+
+print("AC/DC's rating is: ", getBandRating("AC/DC"))
+print("Deep Purple's rating is: ", getBandRating("Deep Purple"))
+print("My favourite band is", myFavouriteBand)
+
+
+# Example of global variable and local variable with the same name
+
+myFavouriteBand = "AC/DC"
+
+def getBandRating(bandname):
+    myFavouriteBand = "Deep Purple"
+    if bandname == myFavouriteBand:
+        return 10.0
+    else:
+        return 0.0
+
+print("AC/DC's rating is:",getBandRating("AC/DC"))
+print("Deep Purple's rating is: ",getBandRating("Deep Purple"))
+print("My favourite band is:",myFavouriteBand)
+
+# Collections and Functions
+#  When the number of arguments are unknown
+
+
+def printAll(*args): # All the arguments are 'packed' into args which can be treated like a tuple
+    print("No of arguments:", len(args))
+    for argument in args:
+        print(argument)
+#printAll with 3 arguments
+printAll('Horsefeather','Adonis','Bone')
+#printAll with 4 arguments
+printAll('Sidecar','Long Island','Mudslide','Carriage')
+
+# Similarly, The arguments can also be packed into a dictionary as shown:
+def printDictionary(**args):
+    for key in args:
+        print(key + " : " + args[key])
+
+printDictionary(Country='Canada',Province='Ontario',City='Toronto')
+
+# Functions can be incredibly powerful and versatile. They can accept (and return) data types, objects and even other functions as arguements. Consider the example below:
+
+def addItems(list):
+    list.append("Three")
+    list.append("Four")
+
+
+myList = ["One", "Two"]
+
+addItems(myList)
+
+print(myList)
